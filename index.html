@@ -1,0 +1,192 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine" />
+    <link href='http://fonts.googleapis.com/css?family=Share+Tech+Mono' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Condiment' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Fugaz+One' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Nova+Square' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Geo' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Atomic+Age' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Nova+Cut' rel='stylesheet' type='text/css' />
+
+
+    <style type="text/css">
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            color: rgba(0, 230, 240, 1);
+            background-color: black;
+            font-family: Audiowide;
+        }
+
+        #VS_Canvas {
+            display: block;
+            margin: auto;
+            background-color: black;
+        }
+
+        #hudDIV {
+            display: block;
+            float: left;
+        }
+        #creditsDIV {
+            text-align: center;
+            margin: 20px auto;
+        }
+        #header {
+            text-align: center;
+        }
+        
+    </style>
+
+    <title>Vacuum Seal by Team Levitating Mad Fox - Horror Made Horrible</title>
+</head>
+<body>
+    <script type="text/javascript" src="js/windowPolyfill.js"></script>
+    <script type="text/javascript" src="js/context_blender.js"></script>
+    <script type="text/javascript" src="js/interfaces.js"></script>
+    <script type="text/javascript" src="js/debug.js"></script>
+    <script type="text/javascript" src="js/audioManager.js"></script>
+    <script type="text/javascript" src="js/linkedList.js"></script>
+    <script type="text/javascript" src="js/hashMap.js"></script>
+    <script type="text/javascript" src="js/util.js"></script>
+    <script type="text/javascript" src="js/geom.js"></script>
+    <script type="text/javascript" src="js/camera.js"></script>
+    <script type="text/javascript" src="js/lightEngine.js"></script>
+    <script type="text/javascript" src="js/input.js"></script>
+    <script type="text/javascript" src="js/dungeon.js"></script>
+    <script type="text/javascript" src="js/gameState.js"></script>
+    <script type="text/javascript" src="js/game.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/preloader.js"></script>
+    <script type="text/javascript" src="js/sprite.js"></script>
+    <script type="text/javascript" src="js/player.js"></script>
+    <script type="text/javascript" src="js/wall.js"></script>
+    <script type="text/javascript" src="js/room.js"></script>
+    <script type="text/javascript" src="js/elevator.js"></script>
+    <script type="text/javascript" src="js/npc.js"></script>
+    <script type="text/javascript" src="js/world.js"></script>
+    <script type="text/javascript" src="js/weaponManager.js"></script>
+    <script type="text/javascript" src="js/itemManager.js"></script>
+    <script type="text/javascript" src="js/items.js"></script>
+    <script type="text/javascript" src="js/hud.js"></script>
+    <script type="text/javascript" src="js/menu.js"></script>
+    <script type="text/javascript" src="js/particles.js"></script>
+    
+    <div id="hudDIV">
+        <div id="MessageDIV"></div>
+        <div id="infoDIV"></div>
+
+        <div id="sliders">
+            <div id="DIVFeatureDensity"></div>
+            <input id="mapFeatures" type="range"
+                min="0" max="100" step="1" value="25"
+                onchange="game.world.mapFeatures = this.value;" />
+            <br />
+            <div id="DIVItemDensity"></div>
+            <input id="itemDensity" type="range"
+                min="0" max="100" step="1" value="75"
+                onchange="game.world.itemDensity = this.value" />
+            <br />
+            <div id="DIVNPCDensity"></div>
+            <input id="npcDensity" type="range"
+                min="0" max="100" step="1" value="75"
+                onchange="game.world.npcDensity = this.value" />
+            <br />
+            <div id="DIVRoomDensity"></div>
+            <input id="roomDensity" type="range"
+                min="0" max="100" step="1" value="75"
+                onchange="game.world.roomDensity = this.value" />
+            <br />
+            <div id="DIVCorridorDensity"></div>
+            <input id="corridorDensity" type="range"
+                min="0" max="100" step="1" value="100"
+                onchange="game.world.corridorDensity = this.value;" />
+            <br />
+            <input type="button" onclick="game.world.rebuild(); game.player.weaponManager = new vs.WeaponManager(game, game.player);" value="Rebuild" />
+            <br />
+            <div id="DIVPlayerSpeed"></div>
+            <input id="playerSpeed" type="range"
+                min="10" max="600" step="5" value="1"
+                onchange="game.world.player.speed = this.value;" />
+            <br />
+            Main Volume<br />
+            <input id="mainVolume" type="range"
+                min="0" max="10" step="0.2" value="1"
+                onchange="game.soundManager.setMainVolume(this.value);" />
+            <br />
+
+        </div>
+        <br />
+    </div>
+    
+    <canvas id="VS_Canvas" width="1000" height="750"></canvas>
+    <div id="header">
+        <h1>Vacuum Seal</h1>
+    </div>
+    <div id="creditsDIV">
+        <h3>A game by Team Madly Levitating Fox</h3>
+        <p>Michael Jones - Programmer, Artist, SFX</p>
+        <p>Bennion Archer - Programmer, Designer, Original Concept</p>
+        <p>Brielle Porter - Artist, Designer</p>
+        <p>Controls: WASD to move, mouse to aim, left click to shoot, E to pick items up, F to melee attack, Number Keys to switch weapons once you get them, Tab To view and manage your inventory.</p>
+        <p>Please note that this game makes use of Webkit-Audio to enable 3d sound effects and will only work in Webkit browsers(Chrome & Safari)</p>
+        <p>All assets were created from scratch by our team and are not to be used for commercial purposes. <br />This game was created as a required project for Film 3710: Traditional Game Development Fall 2012, Instructed by David Kennedy as part of the University of Utah's Division of Film: Entertainment Arts and Engineering Program. See http://eae.utah.edu for more information.</p>
+    </div>
+    <!--<script type="text/javascript" src="js/util.js"></script>
+    <script type="text/javascript" src="js/audioManager.js"></script>-->
+
+    <!--<script type="text/javascript">
+        var context;
+        window.addEventListener('load', init, false);
+        function init() {
+            try {
+                context = new webkitAudioContext();
+            }
+            catch (e) {
+                alert('Web Audio API is not supported in this browser');
+            }
+        }
+
+        var testSound = null;
+        loadDogSound("media/EvilHorde.mp3");
+
+        function loadDogSound(url) {
+            var request = new XMLHttpRequest();
+            request.open('GET', url, true);
+            request.responseType = 'arraybuffer';
+
+            // Decode asynchronously
+            request.onload = function () {
+                context.decodeAudioData(request.response, function (buffer) {
+                    dogBarkingBuffer = buffer;
+                });
+            }
+            request.send();
+        }
+
+        function playSound(buffer) {
+            var source = context.createBufferSource(); // creates a sound source
+            source.buffer = buffer;                    // tell the source which sound to play
+            source.connect(context.destination);       // connect the source to the context's destination (the speakers)
+            source.start(0);                          // play the source now
+        }
+    </script>-->
+
+    <!--<audio id="backgroundMusic" controls="controls" >
+        <source src="media/Evil Horde - Hangarmageddon (Best version of E1M1).mp3" type="audio/mpeg" />
+    </audio>-->
+
+
+</body>
+
+
+</html>

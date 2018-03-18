@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <ProjectGuid>{34EE2FB4-6B52-4CA7-8ADA-7ED3D5EA1C66}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <OutputPath>bin</OutputPath>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UpgradeBackupLocation />
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="images\bullets.png" />
+    <Content Include="images\flashlightMask.png" />
+    <Content Include="images\floor.png" />
+    <Content Include="images\items.png" />
+    <Content Include="images\mob2.png" />
+    <Content Include="images\walls.png" />
+    <Content Include="index.html" />
+    <Content Include="images\door.png" />
+    <Content Include="images\paint.jpg" />
+    <Content Include="images\player.png" />
+    <TypeScriptCompile Include="js\camera.ts" />
+    <TypeScriptCompile Include="js\audioManager.ts" />
+    <Content Include="js\audioManager.js">
+      <DependentUpon>audioManager.ts</DependentUpon>
+    </Content>
+    <Content Include="js\camera.js">
+      <DependentUpon>camera.ts</DependentUpon>
+    </Content>
+    <TypeScriptCompile Include="js\linkedList.ts" />
+    <Content Include="js\context_blender.js" />
+    <TypeScriptCompile Include="js\debug.ts" />
+    <Content Include="js\debug.js">
+      <DependentUpon>debug.ts</DependentUpon>
+    </Content>
+    <TypeScriptCompile Include="js\dungeon.d.ts" />
+    <TypeScriptCompile Include="js\definitions.d.ts" />
+    <Content Include="js\definitions.d.js">
+      <DependentUpon>definitions.d.ts</DependentUpon>
+    </Content>
+    <Content Include="js\dungeon.d.js">
+      <DependentUpon>dungeon.d.ts</DependentUpon>
+    </Content>
+    <Content Include="js\dungeon.js" />
+    <TypeScriptCompile Include="js\input.ts" />
+    <TypeScriptCompile Include="js\geom.ts" />
+    <TypeScriptCompile Include="js\gameState.ts" />
+    <TypeScriptCompile Include="js\elevator.ts" />
+    <Content Include="js\elevator.js">
+      <DependentUpon>elevator.ts</DependentUpon>
+    </Content>
+    <Content Include="js\game.js">
+      <DependentUpon>game.ts</DependentUpon>
+    </Content>
+    <Content Include="js\gameState.js">
+      <DependentUpon>gameState.ts</DependentUpon>
+    </Content>
+    <Content Include="js\geom.js">
+      <DependentUpon>geom.ts</DependentUpon>
+    </Content>
+    <Content Include="js\hashMap.js">
+      <DependentUpon>hashMap.ts</DependentUpon>
+    </Content>
+    <Content Include="js\hashMap.ts" />
+    <TypeScriptCompile Include="js\hud.ts" />
+    <Content Include="js\hud.js">
+      <DependentUpon>hud.ts</DependentUpon>
+    </Content>
+    <Content Include="js\input.js">
+      <DependentUpon>input.ts</DependentUpon>
+    </Content>
+    <TypeScriptCompile Include="js\interfaces.ts" />
+    <Content Include="js\interfaces.js">
+      <DependentUpon>interfaces.ts</DependentUpon>
+    </Content>
+    <TypeScriptCompile Include="js\itemManager.ts" />
+    <Content Include="js\itemManager.js">
+      <DependentUpon>itemManager.ts</DependentUpon>
+    </Content>
+    <TypeScriptCompile Include="js\items.ts" />
+    <Content Include="js\items.js">
+      <DependentUpon>items.ts</DependentUpon>
+    </Content>
+    <Content Include="js\keyboard.js">
+      <DependentUpon>input.ts</DependentUpon>
+    </Content>
+    <Content Include="js\lightEngine.js">
+      <DependentUpon>lightEngine.ts</DependentUpon>
+    </Content>
+    <TypeScriptCompile Include="js\lightEngine.ts" />
+    <Content Include="js\linkedList.js">
+      <DependentUpon>linkedList.ts</DependentUpon>
+    </Content>
+    <TypeScriptCompile Include="js\menu.ts" />
+    <Content Include="js\menu.js">
+      <DependentUpon>menu.ts</DependentUpon>
+    </Content>
+    <Content Include="js\npc.js">
+      <DependentUpon>npc.ts</DependentUpon>
+    </Content>
+    <Content Include="js\npc.ts" />
+    <TypeScriptCompile Include="js\particles.ts" />
+    <Content Include="js\particles.js">
+      <DependentUpon>particles.ts</DependentUpon>
+    </Content>
+    <Content Include="js\player.js">
+      <DependentUpon>player.ts</DependentUpon>
+    </Content>
+    <Content Include="js\player.ts" />
+    <Content Include="js\preloader.js">
+      <DependentUpon>preloader.ts</DependentUpon>
+    </Content>
+    <TypeScriptCompile Include="js\room.ts" />
+    <Content Include="js\room.js">
+      <DependentUpon>room.ts</DependentUpon>
+    </Content>
+    <Content Include="js\sprite.js">
+      <DependentUpon>sprite.ts</DependentUpon>
+    </Content>
+    <TypeScriptCompile Include="js\util.ts" />
+    <Content Include="js\util.js">
+      <DependentUpon>util.ts</DependentUpon>
+    </Content>
+    <TypeScriptCompile Include="js\wall.ts" />
+    <Content Include="js\wall.js">
+      <DependentUpon>wall.ts</DependentUpon>
+    </Content>
+    <TypeScriptCompile Include="js\weaponManager.ts" />
+    <Content Include="js\weaponManager.js">
+      <DependentUpon>weaponManager.ts</DependentUpon>
+    </Content>
+    <Content Include="js\windowPolyfill.js" />
+    <Content Include="js\world.js">
+      <DependentUpon>world.ts</DependentUpon>
+    </Content>
+    <TypeScriptCompile Include="js\world.ts" />
+    <TypeScriptCompile Include="js\sprite.ts" />
+    <TypeScriptCompile Include="js\preloader.ts" />
+    <TypeScriptCompile Include="js\main.ts" />
+    <Content Include="js\main.js">
+      <DependentUpon>main.ts</DependentUpon>
+    </Content>
+    <TypeScriptCompile Include="js\game.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="VacuumSeal.html" />
+    <Content Include="web.config" />
+    <None Include="web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="js\menu.ts.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="js\menu.ts.designer.cs">
+      <DependentUpon>menu.ts.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>VS_4</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:12577/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="BeforeBuild">
+    <Exec Command="&quot;$(PROGRAMFILES)\Microsoft SDKs\TypeScript\0.8.1.0\tsc&quot; -target ES5 @(TypeScriptCompile ->'&quot;%(fullpath)&quot;', ' ')" />
+  </Target>
+</Project>
